@@ -1,4 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import TranslationCache from '../models/TranslationCache.js';
 
 const hasApiKey = !!process.env.GEMINI_API_KEY;
 let model;
@@ -133,6 +134,22 @@ const MOCK_TRANSLATIONS = {
 const translateJapaneseText = async (text) => {
   const trimmed = text.trim();
   
+  // 1. Check static mock translations first for common phrases (instant response)
+  if (MOCK_TRANSLATIONS[trimmed]) {
+    return MOCK_TRANSLATIONS[trimmed];
+  }
+
+  // 2. Check Database Cache for previously translated phrases
+  try {
+    const cached = await TranslationCache.findOne({ text: trimmed });
+    if (cached) {
+      console.log(`[Cache Hit] Returning cached translation for: "${trimmed}"`);
+      return cached.data;
+    }
+  } catch (cacheErr) {
+    console.error('Translation Cache Lookup Error:', cacheErr.message);
+  }
+
   if (!hasApiKey) {
     // If mocked, look for exact match or generate a smart mock
     if (MOCK_TRANSLATIONS[trimmed]) {
@@ -217,7 +234,14 @@ const translateJapaneseText = async (text) => {
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const textOutput = cleanJSONString(response.text());
-    return JSON.parse(textOutput);
+    const parsedData = JSON.parse(textOutput);
+
+    // Save to Database Cache asynchronously so we don't delay the HTTP response
+    TranslationCache.create({ text: trimmed, data: parsedData }).catch(saveErr => {
+      console.error('Failed to save translation to cache:', saveErr.message);
+    });
+
+    return parsedData;
   } catch (error) {
     console.error('Gemini API Translation Error:', error);
     throw new Error('Đã xảy ra lỗi khi gọi AI dịch thuật. Vui lòng kiểm tra API Key hoặc thử lại.');

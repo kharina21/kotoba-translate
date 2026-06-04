@@ -60,10 +60,7 @@ export default function TranslatePage() {
     }
   };
 
-  // Translate default text on page load
-  useEffect(() => {
-    handleTranslate();
-  }, []);
+
 
   const handleKanjiClick = (kanjiChar) => {
     // Clean string to get single kanji characters only

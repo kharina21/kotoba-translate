@@ -32,3 +32,6 @@ yarn-error.log*
 *.sln
 *.sw?
 thumbs.db
+ 
+# Local database files
+backend/data/

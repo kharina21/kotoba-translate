@@ -87,6 +87,7 @@ export default function AIFlashcards() {
       return;
     }
 
+    const isCreatingNewDeck = selectedDeckId === 'new' || decks.length === 0 || !selectedDeckId;
     let targetDeckId = selectedDeckId;
     setSaveLoading(true);
     setError('');
@@ -94,7 +95,7 @@ export default function AIFlashcards() {
 
     try {
       // 1. If "Create new deck" is chosen
-      if (selectedDeckId === 'new') {
+      if (isCreatingNewDeck) {
         if (!newDeckName.trim()) {
           setError('Vui lòng nhập tên cho bộ thẻ học mới.');
           setSaveLoading(false);
@@ -110,7 +111,7 @@ export default function AIFlashcards() {
         }
       }
 
-      if (!targetDeckId) {
+      if (!targetDeckId || targetDeckId === 'new') {
         setError('Vui lòng chọn hoặc tạo mới một bộ thẻ.');
         setSaveLoading(false);
         return;
@@ -238,7 +239,7 @@ export default function AIFlashcards() {
                     <div className="space-y-1.5">
                       <label className="text-gray-400 uppercase tracking-wider font-semibold">Chọn bộ thẻ học</label>
                       <select 
-                        value={selectedDeckId}
+                        value={decks.some(d => d._id === selectedDeckId) ? selectedDeckId : 'new'}
                         onChange={(e) => setSelectedDeckId(e.target.value)}
                         className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-accent-teal"
                       >
@@ -249,8 +250,8 @@ export default function AIFlashcards() {
                       </select>
                     </div>
 
-                    {/* If new is selected */}
-                    {selectedDeckId === 'new' && (
+                    {/* If new is selected or there are no decks */}
+                    {(selectedDeckId === 'new' || decks.length === 0 || !selectedDeckId) && (
                       <div className="space-y-1.5">
                         <label className="text-gray-400 uppercase tracking-wider font-semibold">Tên bộ thẻ học mới</label>
                         <input 
