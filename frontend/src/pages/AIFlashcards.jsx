@@ -11,7 +11,7 @@ export default function AIFlashcards() {
 
   // Decks state
   const [decks, setDecks] = useState([]);
-  const [selectedDeckId, setSelectedDeckId] = useState(deckIdFromUrl || '');
+  const [selectedDeckId, setSelectedDeckId] = useState(deckIdFromUrl || 'new');
   const [newDeckName, setNewDeckName] = useState('');
   
   // AI inputs and results
@@ -33,6 +33,8 @@ export default function AIFlashcards() {
           setDecks(res.data.data);
           if (!deckIdFromUrl && res.data.data.length > 0) {
             setSelectedDeckId(res.data.data[0]._id);
+          } else if (res.data.data.length === 0) {
+            setSelectedDeckId('new');
           }
         }
       } catch (err) {
