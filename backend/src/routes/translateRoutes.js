@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { translateText } = require('../controllers/translateController');
+import { translateText } from '../controllers/translateController.js';
 
 router.post('/', translateText);
 
-module.exports = router;
+export default router;

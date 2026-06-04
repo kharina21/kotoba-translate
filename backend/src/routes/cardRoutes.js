@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { getCardsByDeck, createCard, updateCard, deleteCard, generateAICards, saveAICards } = require('../controllers/cardController');
-const { protect, optionalProtect } = require('../middleware/authMiddleware');
+import { getCardsByDeck, createCard, updateCard, deleteCard, generateAICards, saveAICards } from '../controllers/cardController.js';
+import { protect, optionalProtect } from '../middleware/authMiddleware.js';
 
 router.get('/deck/:deckId', optionalProtect, getCardsByDeck);
 router.post('/', protect, createCard);
@@ -10,4 +10,4 @@ router.delete('/:id', protect, deleteCard);
 router.post('/ai/generate', protect, generateAICards);
 router.post('/ai/save', protect, saveAICards);
 
-module.exports = router;
+export default router;

@@ -1,13 +1,11 @@
-const mongoose = require('mongoose');
-const User = require('./src/models/User');
-const Folder = require('./src/models/Folder');
-const Deck = require('./src/models/Deck');
-const Card = require('./src/models/Card');
-const dotenv = require('dotenv');
+import './src/config/env.js';
+import mongoose from 'mongoose';
+import User from './src/models/User.js';
+import Folder from './src/models/Folder.js';
+import Deck from './src/models/Deck.js';
+import Card from './src/models/Card.js';
 
-dotenv.config();
-
-const connectDB = require('./src/config/db');
+import connectDB from './src/config/db.js';
 
 const seedData = async () => {
   try {

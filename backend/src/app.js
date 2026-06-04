@@ -1,16 +1,20 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const dotenv = require('dotenv');
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
 // Load environment variables
 dotenv.config();
 
-const authRoutes = require('./routes/authRoutes');
-const translateRoutes = require('./routes/translateRoutes');
-const folderRoutes = require('./routes/folderRoutes');
-const deckRoutes = require('./routes/deckRoutes');
-const cardRoutes = require('./routes/cardRoutes');
+import authRoutes from './routes/authRoutes.js';
+import translateRoutes from './routes/translateRoutes.js';
+import folderRoutes from './routes/folderRoutes.js';
+import deckRoutes from './routes/deckRoutes.js';
+import cardRoutes from './routes/cardRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -42,4 +46,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = app;
+export default app;

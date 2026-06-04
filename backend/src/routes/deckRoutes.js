@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { getDecks, getPublicDecks, getDeckById, createDeck, updateDeck, deleteDeck } = require('../controllers/deckController');
-const { protect, optionalProtect } = require('../middleware/authMiddleware');
-const { upload } = require('../config/cloudinary');
+import { getDecks, getPublicDecks, getDeckById, createDeck, updateDeck, deleteDeck } from '../controllers/deckController.js';
+import { protect, optionalProtect } from '../middleware/authMiddleware.js';
+import { upload } from '../config/cloudinary.js';
 
 router.get('/public', getPublicDecks);
 router.get('/', protect, getDecks);
@@ -11,4 +11,4 @@ router.post('/', protect, upload.single('coverImage'), createDeck);
 router.put('/:id', protect, upload.single('coverImage'), updateDeck);
 router.delete('/:id', protect, deleteDeck);
 
-module.exports = router;
+export default router;

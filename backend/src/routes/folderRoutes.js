@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { getFolders, getFolderById, createFolder, updateFolder, deleteFolder } = require('../controllers/folderController');
-const { protect } = require('../middleware/authMiddleware');
+import { getFolders, getFolderById, createFolder, updateFolder, deleteFolder } from '../controllers/folderController.js';
+import { protect } from '../middleware/authMiddleware.js';
 
 router.use(protect); // All folder routes are private
 
@@ -11,4 +11,4 @@ router.post('/', createFolder);
 router.put('/:id', updateFolder);
 router.delete('/:id', deleteFolder);
 
-module.exports = router;
+export default router;

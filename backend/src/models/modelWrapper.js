@@ -1,4 +1,4 @@
-const { LocalModel } = require('./localDB');
+import { LocalModel } from './localDB.js';
 
 const wrapModel = (modelName, mongooseModel) => {
   const localInstance = new LocalModel(modelName);
@@ -17,4 +17,4 @@ const wrapModel = (modelName, mongooseModel) => {
   });
 };
 
-module.exports = wrapModel;
+export default wrapModel;

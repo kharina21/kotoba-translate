@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const dns = require('dns');
+import mongoose from 'mongoose';
+import dns from 'dns';
 
 const connectDB = async () => {
   const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/kotoba_translate';
@@ -45,4 +45,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+export default connectDB;

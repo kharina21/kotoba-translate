@@ -1,4 +1,4 @@
-const { translateJapaneseText } = require('../services/aiService');
+import { translateJapaneseText } from '../services/aiService.js';
 
 // @desc    Translate and parse Japanese text
 // @route   POST /api/translate
@@ -23,6 +23,6 @@ const translateText = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   translateText
 };

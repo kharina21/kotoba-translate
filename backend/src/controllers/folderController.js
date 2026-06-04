@@ -1,5 +1,5 @@
-const Folder = require('../models/Folder');
-const Deck = require('../models/Deck');
+import Folder from '../models/Folder.js';
+import Deck from '../models/Deck.js';
 
 // @desc    Get all folders for current user
 // @route   GET /api/folders
@@ -112,7 +112,7 @@ const deleteFolder = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getFolders,
   getFolderById,
   createFolder,

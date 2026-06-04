@@ -1,8 +1,12 @@
-const cloudinary = require('cloudinary').v2;
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const isCloudinaryConfigured = 
   process.env.CLOUDINARY_CLOUD_NAME && 
@@ -62,7 +66,7 @@ if (isCloudinaryConfigured) {
   console.log('Cloudinary not configured. Configured local disk storage fallback.');
 }
 
-module.exports = {
+export {
   upload,
   cloudinary,
   isCloudinaryConfigured

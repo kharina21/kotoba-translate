@@ -1,12 +1,12 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const { register, login, getMe, updateAvatar } = require('../controllers/authController');
-const { protect } = require('../middleware/authMiddleware');
-const { upload } = require('../config/cloudinary');
+import { register, login, getMe, updateAvatar } from '../controllers/authController.js';
+import { protect } from '../middleware/authMiddleware.js';
+import { upload } from '../config/cloudinary.js';
 
 router.post('/register', register);
 router.post('/login', login);
 router.get('/me', protect, getMe);
 router.put('/avatar', protect, upload.single('avatar'), updateAvatar);
 
-module.exports = router;
+export default router;

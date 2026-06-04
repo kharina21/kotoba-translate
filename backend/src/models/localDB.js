@@ -1,5 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import bcrypt from 'bcryptjs';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(__dirname, '../../data');
 if (!fs.existsSync(DATA_DIR)) {
@@ -87,7 +92,6 @@ class LocalModel {
       };
       item.matchPassword = async function(enteredPassword) {
         // Simple plain check for mock or bcrypt if matchPassword is used
-        const bcrypt = require('bcryptjs');
         return await bcrypt.compare(enteredPassword, this.password);
       };
       item._modelName = this.modelName;
@@ -100,7 +104,6 @@ class LocalModel {
     
     // Hash password if this is User model
     if (this.modelName === 'User' && data.password) {
-      const bcrypt = require('bcryptjs');
       const salt = await bcrypt.genSalt(10);
       data.password = await bcrypt.hash(data.password, salt);
     }
@@ -250,6 +253,6 @@ class QueryChain {
   }
 }
 
-module.exports = {
+export {
   LocalModel
 };

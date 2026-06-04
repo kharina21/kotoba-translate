@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI } = require('@google/generative-ai');
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 const hasApiKey = !!process.env.GEMINI_API_KEY;
 let model;
@@ -6,10 +6,10 @@ let model;
 if (hasApiKey) {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   model = genAI.getGenerativeModel({ 
-    model: 'gemini-1.5-flash',
+    model: 'gemini-3.5-flash',
     generationConfig: { responseMimeType: "application/json" }
   });
-  console.log('Gemini AI Service initialized using gemini-1.5-flash.');
+  console.log('Gemini AI Service initialized using gemini-3.5-flash.');
 } else {
   console.log('No Gemini API Key found. Running AI Service in Mock/Offline mode.');
 }
@@ -290,7 +290,7 @@ const generateFlashcardsFromText = async (rawText) => {
   }
 };
 
-module.exports = {
+export {
   translateJapaneseText,
   generateFlashcardsFromText
 };

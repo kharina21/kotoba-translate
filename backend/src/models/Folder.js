@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const FolderSchema = new mongoose.Schema({
   name: {
@@ -21,4 +21,5 @@ const FolderSchema = new mongoose.Schema({
   }
 });
 
-module.exports = require('./modelWrapper')('Folder', mongoose.model('Folder', FolderSchema));
+import wrapModel from './modelWrapper.js';
+export default wrapModel('Folder', mongoose.model('Folder', FolderSchema));

@@ -1,5 +1,5 @@
-const Deck = require('../models/Deck');
-const Card = require('../models/Card');
+import Deck from '../models/Deck.js';
+import Card from '../models/Card.js';
 
 // @desc    Get user decks (optionally filtered by folderId)
 // @route   GET /api/decks
@@ -164,7 +164,7 @@ const deleteDeck = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getDecks,
   getPublicDecks,
   getDeckById,

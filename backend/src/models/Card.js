@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const CardSchema = new mongoose.Schema({
   deckId: {
@@ -38,4 +38,5 @@ const CardSchema = new mongoose.Schema({
   }
 });
 
-module.exports = require('./modelWrapper')('Card', mongoose.model('Card', CardSchema));
+import wrapModel from './modelWrapper.js';
+export default wrapModel('Card', mongoose.model('Card', CardSchema));

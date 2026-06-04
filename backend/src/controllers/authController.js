@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 // Helper to sign JWT
 const generateToken = (id) => {
@@ -144,7 +144,7 @@ const updateAvatar = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   register,
   login,
   getMe,

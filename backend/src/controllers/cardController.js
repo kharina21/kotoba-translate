@@ -1,6 +1,6 @@
-const Card = require('../models/Card');
-const Deck = require('../models/Deck');
-const { generateFlashcardsFromText } = require('../services/aiService');
+import Card from '../models/Card.js';
+import Deck from '../models/Deck.js';
+import { generateFlashcardsFromText } from '../services/aiService.js';
 
 // @desc    Get cards for a deck
 // @route   GET /api/cards/deck/:deckId
@@ -186,7 +186,7 @@ const saveAICards = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getCardsByDeck,
   createCard,
   updateCard,
