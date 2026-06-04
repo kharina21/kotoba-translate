@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Mono&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --color-bg-oled: #030303;
+  --color-glass-card: rgba(10, 10, 10, 0.55);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-highlight: rgba(255, 255, 255, 0.04);
+  
+  --color-accent-teal: #14b8a6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-rose: #f43f5e;
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --- Global Base Styles --- */
+body {
+  background-color: #030303;
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+/* Elegant Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-teal);
+}
+
+/* Film Grain Texture Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Glowing Radial Orbs in Background */
+.glow-orb {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.glow-orb-teal {
+  background: radial-gradient(circle, var(--color-accent-teal) 0%, transparent 70%);
+  top: -10%;
+  left: 10%;
+}
+
+.glow-orb-purple {
+  background: radial-gradient(circle, var(--color-accent-purple) 0%, transparent 70%);
+  bottom: 10%;
+  right: 10%;
+}
+
+.glow-orb-cyan {
+  background: radial-gradient(circle, var(--color-accent-cyan) 0%, transparent 70%);
+  top: 40%;
+  right: 20%;
+}
+
+/* --- Ethereal Glass Layouts --- */
+
+.glass-panel {
+  background: var(--color-glass-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+/* Haptic Double-Bezel Nested Enclosures */
+.double-bezel-outer {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: 2rem; /* Soft squircle outer */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+.double-bezel-inner {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: calc(2rem - 8px); /* Concentric concentric ratio */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+}
+
+/* --- Premium CTA Buttons --- */
+
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #f3f4f6;
+  color: #030303;
+}
+.btn-primary:hover {
+  background: #ffffff;
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-teal {
+  background: var(--color-accent-teal);
+  color: #030303;
+}
+.btn-teal:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(20, 184, 166, 0.3);
+}
+.btn-teal:active {
+  transform: scale(0.98);
+}
+
+/* --- Japanese Ruby Typography Layout --- */
+
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+
+rt {
+  font-family: var(--font-sans);
+  font-size: 0.6em;
+  letter-spacing: 0.05em;
+  color: var(--color-accent-teal);
+  padding-bottom: 0.1em;
+  user-select: none;
+}
+
+/* Underline kanji on hover for lookup indicators */
+.kanji-clickable {
+  cursor: pointer;
+  transition: color 200ms ease;
+  position: relative;
+}
+
+.kanji-clickable:hover {
+  color: var(--color-accent-teal);
+}
+
+/* 3D Flashcard Flip Mechanics */
+.card-container {
+  perspective: 1000px;
+  width: 100%;
+  height: 280px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.32, 0.72, 0, 1);
+  transform-style: preserve-3d;
+}
+
+.card-container.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}

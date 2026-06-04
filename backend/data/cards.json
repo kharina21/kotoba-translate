@@ -1,0 +1,114 @@
+[
+  {
+    "_id": "nzhn76n90yal2775w60v",
+    "createdAt": "2026-06-04T07:52:41.273Z",
+    "deckId": "oww7lyf2mht30tttk3sh6x",
+    "front": "こんにちは",
+    "frontReading": [
+      {
+        "text": "こんにちは",
+        "rt": ""
+      }
+    ],
+    "back": "Xin chào (Chào buổi chiều)",
+    "example": "皆さん、こんにちは。",
+    "exampleReading": "みなさん、こんにちは。",
+    "exampleTranslation": "Xin chào mọi người."
+  },
+  {
+    "_id": "cyld6j3ttr5of724aq764",
+    "createdAt": "2026-06-04T07:52:41.273Z",
+    "deckId": "oww7lyf2mht30tttk3sh6x",
+    "front": "ありがとう",
+    "frontReading": [
+      {
+        "text": "ありがとう",
+        "rt": ""
+      }
+    ],
+    "back": "Cảm ơn",
+    "example": "手伝ってくれてありがとう。",
+    "exampleReading": "てつだってくれてありがとう。",
+    "exampleTranslation": "Cảm ơn vì đã giúp đỡ tôi."
+  },
+  {
+    "_id": "4ai4bpo0ua5u0sm7fis5zn",
+    "createdAt": "2026-06-04T07:52:41.273Z",
+    "deckId": "oww7lyf2mht30tttk3sh6x",
+    "front": "すみません",
+    "frontReading": [
+      {
+        "text": "すみません",
+        "rt": ""
+      }
+    ],
+    "back": "Xin lỗi / Xin hỏi (gây sự chú ý)",
+    "example": "すみません、駅は đâu ですか？",
+    "exampleReading": "すみません、えきはどこですか？",
+    "exampleTranslation": "Xin lỗi, nhà ga ở đâu thế ạ?"
+  },
+  {
+    "_id": "a2bjq2n1x1sg5hw5yzmo4",
+    "createdAt": "2026-06-04T07:52:41.273Z",
+    "deckId": "oww7lyf2mht30tttk3sh6x",
+    "front": "日本語",
+    "frontReading": [
+      {
+        "text": "日",
+        "rt": "に"
+      },
+      {
+        "text": "本",
+        "rt": "ほん"
+      },
+      {
+        "text": "語",
+        "rt": "ご"
+      }
+    ],
+    "back": "Tiếng Nhật",
+    "example": "日本語を勉強します。",
+    "exampleReading": "にほんごをべんきょうします。",
+    "exampleTranslation": "Tôi học tiếng Nhật."
+  },
+  {
+    "_id": "sa9gmcoq8bpkpj6zyhlp7q",
+    "createdAt": "2026-06-04T07:52:41.273Z",
+    "deckId": "oww7lyf2mht30tttk3sh6x",
+    "front": "先生",
+    "frontReading": [
+      {
+        "text": "先",
+        "rt": "せん"
+      },
+      {
+        "text": "生",
+        "rt": "せい"
+      }
+    ],
+    "back": "Giáo viên, bác sĩ, người đi trước",
+    "example": "田中先生は優しいです。",
+    "exampleReading": "たなかせんせいはやさしいです。",
+    "exampleTranslation": "Thầy Tanaka rất hiền từ."
+  },
+  {
+    "_id": "sigjsx2zjqa70p0bsedzaj",
+    "createdAt": "2026-06-04T07:52:41.276Z",
+    "deckId": "0o2b8z4jai2789ak00gwz9",
+    "front": "寿司",
+    "frontReading": [
+      {
+        "text": "寿",
+        "rt": "す"
+      },
+      {
+        "text": "司",
+        "rt": "し"
+      }
+    ],
+    "back": "Món Sushi",
+    "example": "お寿司が大好きです。",
+    "exampleReading": "おすしがだいすきです。",
+    "exampleTranslation": "Tôi cực kỳ thích ăn sushi."
+  }
+]

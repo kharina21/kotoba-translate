@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "oww7lyf2mht30tttk3sh6x",
+    "createdAt": "2026-06-04T07:52:41.271Z",
+    "name": "Chào hỏi cơ bản (Greetings)",
+    "description": "Những câu chào hỏi và mẫu câu lịch sự thông dụng hàng ngày trong tiếng Nhật.",
+    "isPublic": true,
+    "coverImage": "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=500&q=80",
+    "userId": "w2s16ni3gll9zjzhct5o",
+    "folderId": "c093d5euow2p8xwuq55dg"
+  },
+  {
+    "_id": "0o2b8z4jai2789ak00gwz9",
+    "createdAt": "2026-06-04T07:52:41.275Z",
+    "name": "Từ vựng đồ ăn (Food Vocabulary)",
+    "description": "Bài học riêng tư về chủ đề ăn uống, ẩm thực sushi, ramen...",
+    "isPublic": false,
+    "coverImage": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80",
+    "userId": "w2s16ni3gll9zjzhct5o",
+    "folderId": "c093d5euow2p8xwuq55dg"
+  }
+]
